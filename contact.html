@@ -65,7 +65,7 @@
 
             <h2>Send Us A Message</h2>
 
-            <form>
+            <form id="contactForm">
 
                 <input
                 type="text"
@@ -149,15 +149,66 @@
 
 <footer>
 
-    <h3>
-        Hyderabad Real Estate Services
-    </h3>
+     <h3>Hyderabad Real Estate Services</h3>
 
-    <p>
-        Your trusted partner in Hyderabad real estate.
-    </p>
+        <p>
+            Helping buyers and sellers connect with confidence.
+        </p>
+
+        <p>
+            Hyderabad, Telangana
+        </p>
+        <p> 📞 +91 9000116168 </p>
+        <p>📧 hyderabadrealestateservices99@gmail.com</p>
+
 
 </footer>
 <script src="js/script.js"></script>
+<script>
+
+document
+.getElementById("contactForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const name =
+    this.querySelector(
+    'input[type="text"]'
+    ).value;
+
+    const email =
+    this.querySelector(
+    'input[type="email"]'
+    ).value;
+
+    const phone =
+    this.querySelector(
+    'input[type="tel"]'
+    ).value;
+
+    const message =
+    this.querySelector(
+    'textarea'
+    ).value;
+
+    const whatsappMessage =
+
+`CONTACT REQUEST
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message:
+${message}`;
+
+    window.open(
+`https://wa.me/919000116168?text=${encodeURIComponent(whatsappMessage)}`,
+"_blank"
+);
+
+});
+
+</script>
 </body>
 </html>

@@ -65,7 +65,7 @@
 
             <h2>Property Information</h2>
 
-            <form>
+            <form id="sellPropertyForm">
 
                 <input type="text"
                     placeholder="Owner Full Name"
@@ -90,7 +90,29 @@
                     <option>Plot</option>
                     <option>Commercial Property</option>
                 </select>
+                <select required>
 
+    <option value="">
+        Property Facing
+    </option>
+
+    <option>East Facing</option>
+
+    <option>West Facing</option>
+
+    <option>North Facing</option>
+
+    <option>South Facing</option>
+
+    <option>North-East Facing</option>
+
+    <option>North-West Facing</option>
+
+    <option>South-East Facing</option>
+
+    <option>South-West Facing</option>
+
+</select>
                 <input type="text"
                     placeholder="Expected Selling Price">
 
@@ -163,9 +185,67 @@
         <p>
             Hyderabad, Telangana
         </p>
+        <p> 📞 +91 9000116168 </p>
+        <p>📧 hyderabadrealestateservices99@gmail.com</p>
 
     </footer>
 <script src="js/script.js"></script>
+<script>
+
+document
+.getElementById("sellPropertyForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const inputs =
+    this.querySelectorAll("input");
+
+    const ownerName = inputs[0].value;
+    const phone = inputs[1].value;
+    const email = inputs[2].value;
+    const location = inputs[3].value;
+
+    const selects =
+this.querySelectorAll("select");
+
+const propertyType =
+selects[0].value;
+
+const facing =
+selects[1].value;
+
+const expectedPrice =
+inputs[4].value;
+
+    const area = inputs[5].value;
+
+    const description =
+    this.querySelector("textarea").value;
+
+    const whatsappMessage =
+
+`🏠 SELL PROPERTY REQUEST
+
+Owner Name: ${ownerName}
+Phone: ${phone}
+Email: ${email}
+Location: ${location}
+Property Type: ${propertyType}
+Facing: ${facing}
+Expected Price: ${expectedPrice}
+Property Area: ${area}
+Description:
+${description}`;
+
+    window.open(
+`https://wa.me/919000116168?text=${encodeURIComponent(whatsappMessage)}`,
+"_blank"
+    );
+
+});
+
+</script>
 </body>
 
 </html>
