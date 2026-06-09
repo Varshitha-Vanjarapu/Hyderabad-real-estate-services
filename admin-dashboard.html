@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+
+        <img
+        src="images/logo.png"
+        alt="Logo"
+        class="logo-img">
+
+        <span>
+            Hyderabad Real Estate Services
+        </span>
+
+    </div>
+
+    <button id="logoutBtn">
+        Logout
+    </button>
+
+</nav>
+
+<section class="dashboard">
+
+    <h1>Add / Edit Property</h1>
+
+    <form id="propertyForm">
+
+        <input
+        type="text"
+        id="title"
+        placeholder="Property Title"
+        required>
+
+        <select id="status">
+
+            <option value="Available">
+                Available
+            </option>
+
+            <option value="Sold">
+                Sold
+            </option>
+
+            <option value="Under Negotiation">
+                Under Negotiation
+            </option>
+
+        </select>
+
+        <label class="featured-label">
+
+            <input
+            type="checkbox"
+            id="featured">
+
+            Featured Property
+
+        </label>
+
+        <textarea
+        id="description"
+        rows="12"
+        placeholder="Paste full property details here..."
+        required></textarea>
+
+        <label>
+
+            Upload Property Images
+
+        </label>
+
+        <input
+        type="file"
+        id="images"
+        multiple
+        accept="image/*">
+
+        <button type="submit">
+
+            Save Property
+
+        </button>
+
+    </form>
+
+    <p id="saveStatus"></p>
+
+    <hr>
+<input
+type="text"
+id="adminSearch"
+placeholder="Search Property..."
+onkeyup="searchAdminProperties()">
+    <h2>Manage Properties</h2>
+
+    <div id="propertiesList">
+
+        Loading Properties...
+
+    </div>
+
+</section>
+
+<script
+type="module"
+src="js/admin.js"></script>
+
+</body>
+
+</html>

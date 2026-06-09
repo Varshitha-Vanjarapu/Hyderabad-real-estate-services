@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabad Real Estate Services</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+    <div class="logo">
+
+    <img
+    src="images/logo.png"
+    alt="HRES Logo"
+    class="logo-img">
+
+    <span>
+        Hyderabad Real Estate Services
+    </span>
+
+</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <ul id="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="properties.html">Properties</a></li>
+
+        <li><a href="sell-property.html">Sell Property</a></li>
+
+        <li><a href="about.html">About Us</a></li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+
+    </ul>
+
+</nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <h1>
+            Your Trusted Partner In Hyderabad Real Estate
+        </h1>
+
+        <p>
+            Buy, Sell and Invest With Confidence
+        </p>
+
+        <div>
+
+            <a href="properties.html" class="btn">
+                View Properties
+            </a>
+
+            <a href="sell-property.html" class="btn">
+                Sell Property
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURED PROPERTIES -->
+
+    <section>
+
+    <h2>Featured Properties</h2>
+
+    <div
+    class="property-grid"
+    id="featuredProperties">
+
+        Loading Properties...
+
+    </div>
+
+</section>
+          
+    <!-- WHY CHOOSE US -->
+
+    <section>
+
+        <h2>Why Choose Us</h2>
+
+        <div class="features">
+
+            <div class="feature-box">
+
+                <h3>Verified Properties</h3>
+
+                <p>
+                    Every listing is verified before publication.
+                </p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <h3>Local Expertise</h3>
+
+                <p>
+                    Deep understanding of Hyderabad real estate.
+                </p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <h3>Professional Guidance</h3>
+
+                <p>
+                    End-to-end support throughout the transaction.
+                </p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <h3>Trusted Service</h3>
+
+                <p>
+                    Transparent dealings and customer-first approach.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVICES -->
+
+    <section>
+
+        <h2>Our Services</h2>
+
+        <div class="features">
+
+            <div class="feature-box">
+                <h3>Property Buying</h3>
+                <p>Helping buyers find the perfect property.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Property Selling</h3>
+                <p>Helping owners market and sell properties.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Investment Guidance</h3>
+                <p>Expert advice for property investments.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Commercial Real Estate</h3>
+                <p>Offices, shops and investment properties.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TESTIMONIALS -->
+
+    <section>
+
+        <h2>What Our Clients Say</h2>
+
+        <div class="features">
+
+            <div class="feature-box">
+
+                <h3>Ramesh Kumar</h3>
+
+                <p>
+                    Excellent service. Found my dream villa in Hyderabad.
+                </p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <h3>Priya Sharma</h3>
+
+                <p>
+                    Professional team and smooth buying experience.
+                </p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <h3>Venkatesh Rao</h3>
+
+                <p>
+                    Highly recommend Hyderabad Real Estate Services.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CALL TO ACTION -->
+
+    <section class="about">
+
+        <h2>Ready To Find Your Property?</h2>
+
+        <p>
+
+            Explore premium properties across Hyderabad or contact
+            our team for personalized assistance.
+
+        </p>
+
+        <br>
+
+        <a href="contact.html" class="btn">
+            Contact Us
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            Hyderabad Real Estate Services
+        </h3>
+
+        <p>
+            Your trusted partner in Hyderabad real estate.
+        </p>
+
+        <p>
+            Hyderabad, Telangana, India
+        </p>
+
+    </footer>
+
+    <!-- WHATSAPP -->
+
+    <a
+        href="https://wa.me/919000116168"
+        target="_blank"
+        class="whatsapp-btn">
+
+        WhatsApp
+
+    </a>
+
+    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
+
+<script type="module">
+
+import { db } from "./js/firebase-config.js";
+
+import {
+    collection,
+    getDocs
+}
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+const featuredContainer =
+document.getElementById(
+    "featuredProperties"
+);
+
+async function loadFeaturedProperties(){
+
+    const querySnapshot =
+    await getDocs(
+        collection(db,"properties")
+    );
+
+    featuredContainer.innerHTML = "";
+
+    let count = 0;
+
+    querySnapshot.forEach((doc)=>{
+
+        const property =
+        doc.data();
+
+        if(property.featured && count < 6){
+
+            const image =
+            property.images?.[0] || "";
+
+            featuredContainer.innerHTML += `
+
+            <div class="card">
+
+                <img
+                src="${image}"
+                alt="${property.title}">
+
+                <div class="card-content">
+
+                    <h3>
+                        ${property.title}
+                    </h3>
+
+                    <p class="property-status
+                    ${(property.status || "Available")
+                    .toLowerCase()
+                    .replace(/\s+/g,"-")}">
+
+                    ${property.status || "Available"}
+
+                    </p>
+
+                    <a
+                    href="property-details.html?id=${doc.id}"
+                    class="details-btn">
+
+                    View Details
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            `;
+
+            count++;
+
+        }
+
+    });
+
+    if(count === 0){
+
+        featuredContainer.innerHTML =
+
+        "<p>No Featured Properties Available.</p>";
+
+    }
+
+}
+
+loadFeaturedProperties();
+
+</script>
+</body>
+
+</html>

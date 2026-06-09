@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<section class="login-page">
+
+    <div class="login-box">
+
+        <h1>Admin Login</h1>
+
+        <p>
+            Hyderabad Real Estate Services
+        </p>
+
+        <form id="loginForm">
+
+            <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            required>
+
+            <div class="password-container">
+
+    <input
+    type="password"
+    id="password"
+    placeholder="Password"
+    required>
+
+    <span
+    class="toggle-password"
+    onclick="togglePassword()">
+
+        👁
+
+    </span>
+
+</div>
+
+            <button type="submit">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</section>
+
+<script type="module" src="js/admin.js"></script>
+
+</body>
+
+</html>
+```
