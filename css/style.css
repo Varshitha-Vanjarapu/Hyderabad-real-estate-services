@@ -1457,3 +1457,96 @@ footer p{
 .footer-contact a:hover{
     color: #25D366;
 }
+/* =========================
+   MOBILE FIXES
+========================= */
+@media (max-width: 768px) {
+
+    /* Remove horizontal scrolling */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Header spacing fix */
+    nav {
+        padding: 12px 15px;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        gap: 10px;
+    }
+
+    .logo span {
+        font-size: 1.5rem;
+    }
+
+    /* Hero buttons gap */
+    .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+    .hero-btns,
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;   /* space between buttons */
+    }
+
+    .hero-buttons a,
+    .hero-btns a,
+    .hero-actions a {
+        margin: 0;
+    }
+
+    /* Contact page left-right balance */
+    .contact-container {
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .contact-form,
+    .contact-info-box {
+        width: 100%;
+        margin: 0 auto 25px auto;
+        box-sizing: border-box;
+    }
+
+    /* Contact form inputs */
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Footer spacing fix */
+    footer {
+        padding: 40px 15px;
+        box-sizing: border-box;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    footer p,
+    footer h3 {
+        word-wrap: break-word;
+    }
+
+    /* WhatsApp button position */
+    .whatsapp-float {
+        right: 15px;
+        bottom: 20px;
+    }
+
+    /* Prevent elements from exceeding screen width */
+    img,
+    iframe,
+    section,
+    div {
+        max-width: 100%;
+    }
+}
