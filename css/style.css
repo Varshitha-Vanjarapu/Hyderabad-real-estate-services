@@ -1486,7 +1486,8 @@ footer p{
     .hero-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 20px;
 }
     .hero-btns,
     .hero-actions {
@@ -1496,7 +1497,12 @@ footer p{
         gap: 15px;   /* space between buttons */
     }
 
-    .hero-buttons a,
+    .hero-buttons a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
     .hero-btns a,
     .hero-actions a {
         margin: 0;
@@ -1548,4 +1554,26 @@ footer p{
     div {
         max-width: 100%;
     }
+}
+@media (max-width: 768px) {
+
+    .contact-container {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .contact-form,
+    .contact-info-box {
+        width: 100%;
+        margin: 0 auto 25px auto;
+        box-sizing: border-box;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
 }
